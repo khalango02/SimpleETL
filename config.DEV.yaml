@@ -1,0 +1,59 @@
+api:
+ 
+  name: HUBF - DOWNLOAD IMAGEM
+  path: /api/v2/hub/imagem
+  backendBasepath: "http://brai-srv-dcom-recebiveis-service.cd-antecipacao.svc.cluster.local:8443"
+  inboundProfiles:
+    # cors-config-file: cors-default.yaml
+    securityProfile:
+      type: apiKey
+      fieldName: my-code-00
+      takeFrom: header
+  # outboundProfiles:
+  #   authenticationProfile: _default
+  #   routeType: "policy"
+  #   routePolicy: "SADIF - Return Test"
+  #   requestPolicy: "Request - Cancela um Contrato-Assinatura de um Cliente - MAGIA"
+  #   responsePolicy: "Response - PUT e POST e DELETE - Alterar agendamento e programacao de Produtos de Investimentos - YMIV"
+  #   faultHandlerPolicy: "AGCO - FaultHandler - /v1/agendamentocorporativo/debitosdeveiculos/detalhe"
+  # certificate:
+  #   useDefaultBradescoCertificates: true
+  #   certificateFile: "corp.cloud.neth.bradesco.com.br.crt"
+  quotas:
+    transactionsPerSecond: "1600"
+  # tags:
+  #   hasSwagger: true
+  # methods:
+  #   - name: errorHtmlUsingGET2:
+  #     quotas:
+  #       transactionsPerSecond: "4800"
+  #   includeHasMetricsTag: true
+  #   inboundProfiles:
+  #     securityProfile:
+  #       name: "my-sec-profile-2"
+  #       type: apiKey
+  #       fieldName: my-code02
+  #       takeFrom: header
+  #   outboundProfiles:
+  #     authenticationProfile: _default
+  #     routeType: "proxy"
+  #     requestPolicy: "Request 3 Second Cache - ENTR"
+  #     responsePolicy: "GET e PUT - Consulta de Limite Pre-Aprovado - LIME"
+  #     faultHandlerPolicy: "Default Fault Handler"
+    # - name: "errorHtmlUsingGET"
+    #   quotas:
+    #     transactionsPerSecond: "3200"
+    # includeHasMetricsTag: true
+    # inboundProfiles:
+    #   securityProfile:
+    #     name: "my-sec-profile-1"
+    #     type: apiKey
+    #     fieldName: my-code01
+    #     takeFrom: query
+    # outboundProfiles:
+    #   authenticationProfile: _default
+    #   routeType: "policy"
+    #   routePolicy: "v1-adesao-proposta ROUTE FCOD"
+    #   requestPolicy: "v2 - REQ - DEBITOSVEICULOS"
+    #   responsePolicy: "Response - Senha Next - SADIF"
+    #   faultHandlerPolicy: "FaultHandlerTrue"
